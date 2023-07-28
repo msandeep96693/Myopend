@@ -33,7 +33,7 @@ public class OP_NormalCampaign {
 	By country = By.xpath("(//select[@ng-model='country_iso'])[1]");
 	By Aud_Reach =By.xpath("(//select[@ng-model='audience_type'])[1]");
 	By Camp_category = By.xpath("(//input[@ng-model='audience_category_text'])[1]");
-	By Categ_option = By.xpath("(//label[.='Automotive'])[2]");
+	By Categ_option = By.xpath("//label[.='Automotive']");
 	By Btn =By.xpath("(//button[.='Select'])[2]");
 	By Sub_Categ = By.xpath("(//input[@ng-model='functionalareaText'])[1]");
 	By Sub_categ_option = By.xpath("(//label[.='Select All'])[1]");
@@ -106,7 +106,7 @@ public class OP_NormalCampaign {
 		sel_03.selectByVisibleText("United Kingdom");
 		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor)driver;
-		js.executeScript("window.scrollBy(0,150)");
+		js.executeScript("window.scrollBy(0,506)");
 		WebElement Audience_Reach = driver.findElement(Aud_Reach);
 		Select sel_04 = new Select(Audience_Reach);
 		sel_04.selectByVisibleText("UK Consumer Data");
@@ -122,16 +122,14 @@ public class OP_NormalCampaign {
 		Thread.sleep(2000);
 		driver.findElement(Btn).click();
 		Thread.sleep(3000);
-		JavascriptExecutor js_1 = (JavascriptExecutor)driver;
-		js.executeScript("window.scrollBy(0,200)");
 		driver.findElement(Sub_Categ).click();
 		Thread.sleep(2000);
 		Set<String> Pid01 = driver.getWindowHandles();
 		for(String id1 :Pid01) {
 			driver.switchTo().window(id1);
 		Thread.sleep(2000);
-		//driver.findElement(Sub_categ_option).click();
-		//Thread.sleep(2000);
+		driver.findElement(Sub_categ_option).click();
+		Thread.sleep(2000);
 		driver.findElement(Categ_Btn).click();
 		Thread.sleep(2000);
 		driver.findElement(PB).click();
